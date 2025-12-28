@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="121b12d6-25f6-458d-95d9-a54c024e7407" name="Changes" comment="ADD color_choice_display. Not functional yet.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="121b12d6-25f6-458d-95d9-a54c024e7407" name="Changes" comment="BUG FIX color_choice_display. Not functional yet.">
+      <change afterPath="$PROJECT_DIR$/engine.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +36,10 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.ui.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/Antoine/PycharmProjects/Mastermind",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -60,7 +63,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1766929013461</updated>
-      <workItem from="1766929014487" duration="17079000" />
+      <workItem from="1766929014487" duration="17893000" />
     </task>
     <task id="LOCAL-00001" summary="CREATE architecture of the projet + architecture of ui.py">
       <option name="closed" value="true" />
@@ -118,7 +121,15 @@
       <option name="project" value="LOCAL" />
       <updated>1766952096682</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="BUG FIX color_choice_display. Not functional yet.">
+      <option name="closed" value="true" />
+      <created>1766959065708</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1766959065708</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -142,7 +153,8 @@
     <MESSAGE value="ADD build board display" />
     <MESSAGE value="Work in build_board" />
     <MESSAGE value="ADD color_choice_display. Not functional yet." />
-    <option name="LAST_COMMIT_MESSAGE" value="ADD color_choice_display. Not functional yet." />
+    <MESSAGE value="BUG FIX color_choice_display. Not functional yet." />
+    <option name="LAST_COMMIT_MESSAGE" value="BUG FIX color_choice_display. Not functional yet." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Mastermind$ui.coverage" NAME="ui Coverage Results" MODIFIED="1766952819465" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv" />

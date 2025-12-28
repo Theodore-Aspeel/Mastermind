@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="121b12d6-25f6-458d-95d9-a54c024e7407" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Mastermind.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="121b12d6-25f6-458d-95d9-a54c024e7407" name="Changes" comment="CREATE architecture of the projet + architecture of ui.py" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,11 +58,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1766929013461</updated>
-      <workItem from="1766929014487" duration="442000" />
+      <workItem from="1766929014487" duration="3563000" />
     </task>
+    <task id="LOCAL-00001" summary="CREATE architecture of the projet + architecture of ui.py">
+      <option name="closed" value="true" />
+      <created>1766929501503</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1766929501503</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="CREATE architecture of the projet + architecture of ui.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="CREATE architecture of the projet + architecture of ui.py" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Mastermind$ui.coverage" NAME="ui Coverage Results" MODIFIED="1766932551145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv" />
   </component>
 </project>

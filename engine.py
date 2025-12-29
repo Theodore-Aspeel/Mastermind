@@ -37,13 +37,24 @@ def secrete_code() -> List[str]:
     """
 
 def guess_test():
+    """
+    well_placed = good colour & good position --> black piece
+    misplaced = good colour & bad position --> white piece
+    misplace = total colour in commun - well_place
+
+    :return:
+    """
 
     well_placed = 0
     for n in range(CODE_LENGTH):
         if player_selection(n) == secrete_code(n):
             well_placed += 1
 
-    good_colour = 0
-    for _ in range(CODE_LENGTH):
+
+
+    common_colour = 0
+    for color in COLORS:
         if
+
+    misplaced = total_common - well_placed
 

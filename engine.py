@@ -14,6 +14,7 @@ from random import random, choice
 COLORS = ["red", "green", "blue", "yellow", "orange", "purple"]
 CODE_LENGTH = 4
 
+
 # --------------------------Fonctions--------------------------
 
 def secrete_code() -> List[str]:
@@ -25,6 +26,8 @@ def secrete_code() -> List[str]:
         # Add a random color to the end of an existing list
         selected_colour.append(choice(COLORS))
     return selected_colour
+
+
 # print(secrete_code())
 
 """def player_selection() -> List[str]:
@@ -36,7 +39,8 @@ def secrete_code() -> List[str]:
     PAS DE SELECTION ICI MAIS DANS L UI DIRECTEMENT
     """
 
-def guess_test():
+
+def guess_test(selected_colour, color_guess) -> tuple[int, int]:
     """
     well_placed = good colour & good position --> black piece
     misplaced = good colour & bad position --> white piece
@@ -47,18 +51,27 @@ def guess_test():
 
 
     """
-    player_selection = ("red", "green", "blue", "yellow")
-    secrete_code.count = ("blue", "green", "purple", "green")
+    player_selection = ["red", "green", "blue", "yellow"]
+    selected_colour = ["blue", "green", "purple", "green"]
 
     total_common_color = 0
     for colors in COLORS:
-        total_common_color += min(player_selection.count(colors), secrete_code.count[colors])
+        total_common_color += min(player_selection.count(colors), selected_colour.count(colors))
 
     well_placed = 0
     for n in range(CODE_LENGTH):
-        if player_selection(n) == secrete_code(n):
+        if player_selection[n] == selected_colour[n]:
             well_placed += 1
 
     misplaced = total_common_color - well_placed
-    print(f"You have {well_placed} black pieces, {misplaced} white pieces.")
 
+    return well_placed, misplaced
+
+def test():
+    player_selection = ["red", "green", "blue", "yellow"]
+    selected_colour = ["blue", "green", "purple", "green"]
+    guess_test(selected_colour, player_selection)
+
+
+
+    print(guess_test(selected_colour, player_selection))

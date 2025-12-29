@@ -42,19 +42,23 @@ def guess_test():
     misplaced = good colour & bad position --> white piece
     misplace = total colour in commun - well_place
 
-    :return:
+   total_common_color = the minimum of every color between the secret code, and the player guess.
+   EX : GUESS : Y B R R & SECRET : R G B P. total_common_color = 1R 1B 0Y 0P
+
+
     """
+    player_selection = ("red", "green", "blue", "yellow")
+    secrete_code.count = ("blue", "green", "purple", "green")
+
+    total_common_color = 0
+    for colors in COLORS:
+        total_common_color += min(player_selection.count(colors), secrete_code.count[colors])
 
     well_placed = 0
     for n in range(CODE_LENGTH):
         if player_selection(n) == secrete_code(n):
             well_placed += 1
 
-
-
-    common_colour = 0
-    for color in COLORS:
-        if
-
-    misplaced = total_common - well_placed
+    misplaced = total_common_color - well_placed
+    print(f"You have {well_placed} black pieces, {misplaced} white pieces.")
 

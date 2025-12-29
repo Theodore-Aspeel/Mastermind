@@ -782,6 +782,7 @@ COLORS = ["red", "green", "blue", "yellow", "orange", "purple"]
 
 # --------------------------MAIN FUNCTION--------------------------
 def main() -> None:
+    """ Main fonction. Start the mainloop, and call the others functions """
     global root
     root = tk.Tk()
     build_title()
@@ -793,6 +794,7 @@ def main() -> None:
 
 
 def build_ui():
+    """ Build the main window/the root"""
     root.title("Mastermind v1.0")
     root.configure(background=BACKGROUND_COLOR)
 
@@ -826,13 +828,24 @@ def build_title() -> None:
 
 
 def build_board_display():
+    """ Build the board.The smallest unit is the cells
+     The board is made of 10 rows. Each row contains :
+     - a guess zone of 4 cells ( the color circle of the game)
+     - a feedback area made of four cells ( black/withe pawn)
+
+     Not yet as the FIGMA. In futur, the feedback area will be divide btw:
+     - validate the guess
+     - the black & withe pawn
+
+
+     """
     global cells
 
     board_frame = tk.Frame(root, bg="grey17")
     board_frame.pack(padx=PAD_X, pady=PAD_Y, expand=True, fill=tk.BOTH)
 
     cells = []
-
+    #One iteration for each row
     for row in range(10):
         row_frame = tk.Frame(board_frame, bg="grey17")
         row_frame.pack(padx=PAD_X, pady=PAD_Y, fill=tk.BOTH, expand=True)
@@ -850,10 +863,11 @@ def build_board_display():
             pion_frame = tk.Frame(feedback_frame, bg="white", width=8, height=8)
             pion_frame.pack(padx=PAD_X, pady=PAD_Y, side="left", )
 
-
 def color_choice_display():
     palette_frame = tk.Frame(root, bg="grey17")
     palette_frame.pack(padx=PAD_X, pady=PAD_Y, expand=True, fill=tk.BOTH)
+
+    # Display the list of color available & create one button per color
     for _ in COLORS:
         btn_color_palette = tk.Button(palette_frame,text="button", width=14, height=14, bg=_ )
         btn_color_palette.pack(padx=20, pady=PAD_Y, side="left")
@@ -864,3 +878,12 @@ def color_choice_display():
 # If the file is imported somewhere, it won't start directly.
 if __name__ == "__main__":
     main()
+
+
+def assigned_pawn_color():
+    result = engine.guess_to_secret_compare(selected_color = int, player_selection=int)
+    if result:
+
+def
+
+

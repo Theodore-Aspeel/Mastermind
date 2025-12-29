@@ -1,6 +1,6 @@
 # --------------------------Import libraries--------------------------
 import tkinter as tk
-from codecs import backslashreplace_errors
+
 
 import engine
 

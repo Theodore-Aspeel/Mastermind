@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="121b12d6-25f6-458d-95d9-a54c024e7407" name="Changes" comment="Add guess_test function (not fonctional).">
+    <list default="true" id="121b12d6-25f6-458d-95d9-a54c024e7407" name="Changes" comment="Work on guess_test function (not fonctional).">
       <change beforePath="$PROJECT_DIR$/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +69,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1766929013461</updated>
-      <workItem from="1766929014487" duration="25720000" />
+      <workItem from="1766929014487" duration="28771000" />
     </task>
     <task id="LOCAL-00001" summary="CREATE architecture of the projet + architecture of ui.py">
       <option name="closed" value="true" />
@@ -166,7 +167,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767002990235</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Work on guess_test function (not fonctional).">
+      <option name="closed" value="true" />
+      <created>1767005483519</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1767005483519</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,10 +203,22 @@
     <MESSAGE value="ADD secrete_code_selection function" />
     <MESSAGE value="CORRECT secrete_code_selection function" />
     <MESSAGE value="Add guess_test function (not fonctional)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add guess_test function (not fonctional)." />
+    <MESSAGE value="Work on guess_test function (not fonctional)." />
+    <option name="LAST_COMMIT_MESSAGE" value="Work on guess_test function (not fonctional)." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/ui.py</url>
+          <line>19</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Mastermind$ui.coverage" NAME="ui Coverage Results" MODIFIED="1766960621349" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Mastermind$engine.coverage" NAME="engine Coverage Results" MODIFIED="1766999920684" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Mastermind$ui.coverage" NAME="ui Coverage Results" MODIFIED="1767006417318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Mastermind$engine.coverage" NAME="engine Coverage Results" MODIFIED="1767008222609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

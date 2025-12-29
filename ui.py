@@ -841,6 +841,8 @@ def build_board_display():
      """
     global cells
 
+
+
     board_frame = tk.Frame(root, bg="grey17")
     board_frame.pack(padx=PAD_X, pady=PAD_Y, expand=True, fill=tk.BOTH)
 
@@ -859,9 +861,19 @@ def build_board_display():
 
         feedback_frame = tk.Frame(row_frame, bg="RoyalBlue4")
         feedback_frame.pack(padx=PAD_X, pady=PAD_Y, side="left")
-        for pion in range(4):
-            pion_frame = tk.Frame(feedback_frame, bg="white", width=8, height=8)
-            pion_frame.pack(padx=PAD_X, pady=PAD_Y, side="left", )
+        """for pion in range(4):
+            pion_frame = tk.Frame(feedback_frame, width=8, height=8, bg="white")
+            pion_frame.pack(padx=PAD_X, pady=PAD_Y, side="left", )"""
+
+        for tuple[int, int]
+            black = result[0]
+            white = result[1]
+        feedback_colors = (black * well_placed + white* misplaced)
+
+        for color in feedback_colors:
+            pion_frame = tk.Frame(feedback_frame, width=8, height=8, bg=color)
+            pion_frame.pack(padx=PAD_X, pady=PAD_Y, side="left")
+
 
 def color_choice_display():
     palette_frame = tk.Frame(root, bg="grey17")
@@ -879,11 +891,15 @@ def color_choice_display():
 if __name__ == "__main__":
     main()
 
+black_pawn = 1
+white_pawn = 2
 
-def assigned_pawn_color():
-    result = engine.guess_to_secret_compare(selected_color = int, player_selection=int)
-    if result:
+def display_pawn_color(black_pawn, white_pawn):
+    for _ in range(black_pawn):
+        pion_frame = tk.Frame(feedback_frame, width=8, height=8, bg="black")
+    for _ in range(white_pawn):
+        pion_frame = tk.Frame(feedback_frame, width=8, height=8, bg="black")
 
-def
+
 
 

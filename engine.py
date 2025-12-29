@@ -21,15 +21,18 @@ def secrete_code() -> List[str]:
     """
     Choose randomly colours to the code that the player will have to guess
     """
-    selected_colour = []
+    selected_color = []
     for _ in range(CODE_LENGTH):
         # Add a random color to the end of an existing list
-        selected_colour.append(choice(COLORS))
-    return selected_colour
-
-
+        selected_color.append(choice(COLORS))
+    return selected_color
 # print(secrete_code())
 
+def fonction_provisoire():
+
+    player_selection = ["red", "green", "blue", "yellow"]
+
+    return player_selection
 """def player_selection() -> List[str]:
     colour_guess = []
     for _ in range(CODE_LENGTH):
@@ -40,7 +43,7 @@ def secrete_code() -> List[str]:
     """
 
 
-def guess_test(selected_colour, color_guess) -> tuple[int, int]:
+def guess_to_secret_compare(selected_color, player_selection) -> tuple[int, int]:
     """
     well_placed = good colour & good position --> black piece
     misplaced = good colour & bad position --> white piece
@@ -51,27 +54,32 @@ def guess_test(selected_colour, color_guess) -> tuple[int, int]:
 
 
     """
-    player_selection = ["red", "green", "blue", "yellow"]
-    selected_colour = ["blue", "green", "purple", "green"]
+
 
     total_common_color = 0
     for colors in COLORS:
-        total_common_color += min(player_selection.count(colors), selected_colour.count(colors))
+        total_common_color += min(player_selection.count(colors), selected_color.count(colors))
 
     well_placed = 0
     for n in range(CODE_LENGTH):
-        if player_selection[n] == selected_colour[n]:
+        if player_selection[n] == selected_color[n]:
             well_placed += 1
 
     misplaced = total_common_color - well_placed
 
     return well_placed, misplaced
 
-def test():
+
+def test_guess_to_secret_compare():
+    """ Test in the engine the guess_to_secret_compare function.
+    In order to test the fonction before having the UI/engine done.
+    """
+
     player_selection = ["red", "green", "blue", "yellow"]
-    selected_colour = ["blue", "green", "purple", "green"]
-    guess_test(selected_colour, player_selection)
+    selected_color = ["blue", "green", "purple", "green"]
 
+    result = guess_to_secret_compare(selected_color, player_selection)
+    print(result)
 
-
-    print(guess_test(selected_colour, player_selection))
+# Don't forget to close the function to avoid losing 20 minutes ><.
+test_guess_to_secret_compare()

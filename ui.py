@@ -842,17 +842,17 @@ def build_board_display():
 
 
     board_frame = tk.Frame(root, bg="grey17")
-    board_frame.pack(padx=PAD_X, pady=PAD_Y, expand=True, fill=tk.BOTH)
+    board_frame.pack(padx=PAD_X, pady=PAD_Y)
 
     cells = []
     #One iteration for each row
     for row in range(10):
         row_frame = tk.Frame(board_frame, bg="grey17")
-        row_frame.pack(padx=PAD_X, pady=PAD_Y, fill=tk.BOTH, expand=True)
+        row_frame.pack(padx=PAD_X, pady=PAD_Y)
         guess_frame = tk.Frame(row_frame, bg="white")
-        guess_frame.pack(padx=PAD_X, pady=PAD_Y, side="left", fill=tk.BOTH, expand=True)
+        guess_frame.pack(padx=PAD_X, pady=PAD_Y, side="left")
         cell_box_frame = tk.Frame(guess_frame, bg="white")
-        cell_box_frame.pack(padx=PAD_X, pady=PAD_Y, side="left", fill=tk.BOTH, expand=True)
+        cell_box_frame.pack(padx=PAD_X, pady=PAD_Y, side="left")
         for cell in range(4):
             cell_frame = tk.Frame(cell_box_frame, bg="black", width=14, height=14)
             cell_frame.pack(padx=20, pady=PAD_Y, side="left")
@@ -868,12 +868,12 @@ def build_board_display():
 
 def color_choice_display():
     palette_frame = tk.Frame(root, bg="grey17")
-    palette_frame.pack(padx=PAD_X, pady=PAD_Y, expand=True, fill=tk.BOTH)
+    palette_frame.pack(padx=PAD_X, pady=PAD_Y)
 
     # Display the list of color available & create one button per color
     for _ in COLORS:
         btn_color_palette = tk.Button(palette_frame, width=14, height=14, bg=_ )
-        btn_color_palette.pack(padx=20, pady=PAD_Y, side="left")
+        btn_color_palette.pack(padx=PAD_X, pady=PAD_Y, side="left")
 
 
 # ------------EVENT-------------------------

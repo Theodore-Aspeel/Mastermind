@@ -16,7 +16,7 @@ PAD_Y = 6
 COLORS = ["red", "green", "blue", "yellow", "orange", "purple"]
 
 # List from reddit
-(
+COLOR_LIST = (
     ('alice blue', '#f0f8ff', (240, 248, 255)),
     ('AliceBlue', '#f0f8ff', (240, 248, 255)),
     ('antique white', '#faebd7', (250, 235, 215)),
@@ -785,11 +785,11 @@ def main() -> None:
     """ Main fonction. Start the mainloop, and call the others functions """
     global root
     root = tk.Tk()
+    build_ui()
     build_title()
     build_board_display()
     build_button()
     color_choice_display()
-    build_ui()
     root.mainloop()
 
 
@@ -804,17 +804,15 @@ def build_button() -> None:
     button_frame.pack(padx=PAD_X, pady=PAD_Y)
 
     lbl_delete_button = tk.Button(button_frame, text="Delete", bg="SlateGray",
-                                  padx=PAD_X, pady=PAD_Y, )
+                                 )
     lbl_delete_button.pack(side=tk.LEFT, padx=PAD_X, pady=PAD_Y)
 
     lbl_new_game_button = tk.Button(button_frame, text="New Game", bg="forest green",
-                                    padx=PAD_X, pady=PAD_Y, )
+                                 )
     lbl_new_game_button.pack(side=tk.LEFT, padx=PAD_X, pady=PAD_Y)
 
 
 def build_title() -> None:
-    root.title("Mastermind")
-    root.configure(background=BACKGROUND_COLOR)
 
     title_frame = tk.Frame(root, bg="RoyalBlue4")
     title_frame.pack(padx=PAD_X, pady=PAD_Y)
@@ -874,7 +872,7 @@ def color_choice_display():
 
     # Display the list of color available & create one button per color
     for _ in COLORS:
-        btn_color_palette = tk.Button(palette_frame,text="button", width=14, height=14, bg=_ )
+        btn_color_palette = tk.Button(palette_frame, width=14, height=14, bg=_ )
         btn_color_palette.pack(padx=20, pady=PAD_Y, side="left")
 
 

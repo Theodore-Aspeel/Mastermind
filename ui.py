@@ -7,8 +7,8 @@ import engine
 # --------------------------UI Constants--------------------------
 # UI Constants
 BACKGROUND_COLOR = "floral white"
-TITLE_FONT = ('Helvetica', 32, 'bold',)
-CELL_FONT = ('Arial', 24, 'bold')
+TITLE_FONT = ('Helvetica', 20, 'bold')
+CELL_FONT = ('Arial', 16, "italic")
 BUTTON_FONT = ('Arial', 12)
 CELL_PADDING = 10
 PAD_X = 6
@@ -850,9 +850,9 @@ def build_board_display():
         row_frame = tk.Frame(board_frame, bg="grey17")
         row_frame.pack(padx=PAD_X, pady=PAD_Y)
         guess_frame = tk.Frame(row_frame, bg="white")
-        guess_frame.pack(padx=PAD_X, pady=PAD_Y, side="left")
+        guess_frame.pack(padx=PAD_X, side="left")
         cell_box_frame = tk.Frame(guess_frame, bg="white")
-        cell_box_frame.pack(padx=PAD_X, pady=PAD_Y, side="left")
+        cell_box_frame.pack(padx=PAD_X, side="left")
         for cell in range(4):
             cell_frame = tk.Frame(cell_box_frame, bg="black", width=14, height=14)
             cell_frame.pack(padx=20, pady=PAD_Y, side="left")
@@ -872,7 +872,7 @@ def color_choice_display():
 
     # Display the list of color available & create one button per color
     for _ in COLORS:
-        btn_color_palette = tk.Button(palette_frame, width=14, height=14, bg=_ )
+        btn_color_palette = tk.Button(palette_frame, width=4, height=2, bg=_ )
         btn_color_palette.pack(padx=PAD_X, pady=PAD_Y, side="left")
 
 

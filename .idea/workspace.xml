@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="121b12d6-25f6-458d-95d9-a54c024e7407" name="Changes" comment="Correction">
+    <list default="true" id="121b12d6-25f6-458d-95d9-a54c024e7407" name="Changes" comment="Remove Expend = True to solve the display bug. Still not functional">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui.py" afterDir="false" />
     </list>
@@ -75,7 +75,7 @@
       <workItem from="1767638675674" duration="2854000" />
       <workItem from="1767693226555" duration="697000" />
       <workItem from="1767998491805" duration="614000" />
-      <workItem from="1768000203275" duration="1470000" />
+      <workItem from="1768000203275" duration="2608000" />
     </task>
     <task id="LOCAL-00001" summary="CREATE architecture of the projet + architecture of ui.py">
       <option name="closed" value="true" />
@@ -245,7 +245,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768001064776</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Remove Expend = True to solve the display bug. Still not functional">
+      <option name="closed" value="true" />
+      <created>1768002219862</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1768002219862</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -280,7 +288,8 @@
     <MESSAGE value="ADD pawn_color. Not fonctional" />
     <MESSAGE value="Update display_pawn_color." />
     <MESSAGE value="Correction" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correction" />
+    <MESSAGE value="Remove Expend = True to solve the display bug. Still not functional" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove Expend = True to solve the display bug. Still not functional" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -299,7 +308,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Mastermind$ui.coverage" NAME="ui Coverage Results" MODIFIED="1768002114194" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Mastermind$ui.coverage" NAME="ui Coverage Results" MODIFIED="1768002909881" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Mastermind$engine.coverage" NAME="engine Coverage Results" MODIFIED="1767013128854" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

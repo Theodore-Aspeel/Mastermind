@@ -829,16 +829,11 @@ def build_board_display():
     """ Build the board.The smallest unit is the cells
      The board is made of 10 rows. Each row contains :
      - a guess zone of 4 cells ( the color circle of the game)
-     - a feedback area made of four cells ( black/withe pawn)
-
-     Not yet as the FIGMA. In futur, the feedback area will be divide btw:
-     - validate the guess
-     - the black & withe pawn
+     - a feedback area made of 4 cells ( black/withe pawn)
 
 
      """
     global cells
-
 
 
     board_frame = tk.Frame(root, bg="grey17")
@@ -847,15 +842,20 @@ def build_board_display():
     cells = []
     #One iteration for each row
     for row in range(10):
+        row_cells = []
         row_frame = tk.Frame(board_frame, bg="grey17")
         row_frame.pack(padx=PAD_X, pady=PAD_Y)
         guess_frame = tk.Frame(row_frame, bg="white")
         guess_frame.pack(padx=PAD_X, side="left")
         cell_box_frame = tk.Frame(guess_frame, bg="white")
         cell_box_frame.pack(padx=PAD_X, side="left")
-        for cell in range(4):
+        for col in range(4):
             cell_frame = tk.Frame(cell_box_frame, bg="black", width=14, height=14)
             cell_frame.pack(padx=20, pady=PAD_Y, side="left")
+
+            row_cells.append(cell_frame)
+
+        cells.append(row_cells)
 
         feedback_frame = tk.Frame(row_frame, bg="RoyalBlue4")
         feedback_frame.pack(padx=PAD_X, pady=PAD_Y, side="left")
@@ -863,7 +863,7 @@ def build_board_display():
             pion_frame = tk.Frame(feedback_frame, width=8, height=8, bg="white")
             pion_frame.pack(padx=PAD_X, pady=PAD_Y, side="left", )
 
-
+    cells[2][2].configure(bg="RoyalBlue4")
 
 
 def color_choice_display():

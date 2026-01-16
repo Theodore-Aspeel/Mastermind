@@ -5,7 +5,6 @@ import tkinter as tk
 import engine
 
 # --------------------------UI Constants--------------------------
-# UI Constants
 BACKGROUND_COLOR = "floral white"
 TITLE_FONT = ('Helvetica', 20, 'bold')
 CELL_FONT = ('Arial', 16, "italic")
@@ -14,6 +13,11 @@ CELL_PADDING = 10
 PAD_X = 6
 PAD_Y = 6
 COLORS = ["red", "green", "blue", "yellow", "orange", "purple"]
+
+# --------------------------UI Variables--------------------------
+current_row = 0
+current_column = 0
+
 
 # List from reddit
 COLOR_LIST = (
@@ -863,7 +867,6 @@ def build_board_display():
             pion_frame = tk.Frame(feedback_frame, width=8, height=8, bg="white")
             pion_frame.pack(padx=PAD_X, pady=PAD_Y, side="left", )
 
-    cells[2][2].configure(bg="RoyalBlue4")
 
 
 def color_choice_display():
@@ -875,7 +878,7 @@ def color_choice_display():
         btn_color_palette = tk.Button(palette_frame, width=4, height=2, bg=_ )
         btn_color_palette.pack(padx=PAD_X, pady=PAD_Y, side="left")
 
-
+    cells[current_row][current_column].configure(bg=on_color_click(btn_color_palette))
 # ------------EVENT-------------------------
 # Run the application only when this file is executed directly (main files)
 # If the file is imported somewhere, it won't start directly.
@@ -899,3 +902,7 @@ def display_pawn_color(feedback_frame, result):
     for _ in range(white):
         pion = tk.Frame(feedback_frame, width=8, height=8, bg="white")
         pion.pack(padx=PAD_X, pady=PAD_Y, side="left", )
+
+def on_color_click(color_palette):
+    """ Function called when a color is clicked."""
+    current_column +=1

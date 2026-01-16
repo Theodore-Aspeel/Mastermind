@@ -867,18 +867,24 @@ def build_board_display():
             pion_frame = tk.Frame(feedback_frame, width=8, height=8, bg="white")
             pion_frame.pack(padx=PAD_X, pady=PAD_Y, side="left", )
 
-
+def color_selection(color: str):
+    """ Create a function associate to a color for selection.
+    It's used to connect the color bouton from the color_palette to the action.
+    Similar to 2048 where command = reset. Except that here we cannot write command = on_color_click(color).
+    Did try but it doesn't work. Check with Cedric why ?
+     """
+    on_color_click(color)
 
 def color_choice_display():
     palette_frame = tk.Frame(root, bg="grey17")
     palette_frame.pack(padx=PAD_X, pady=PAD_Y)
 
     # Display the list of color available & create one button per color
-    for _ in COLORS:
-        btn_color_palette = tk.Button(palette_frame, width=4, height=2, bg=_ )
+    for color in COLORS:
+        btn_color_palette = tk.Button(palette_frame, width=4, height=2,bg=color, command= color_selection(color))
         btn_color_palette.pack(padx=PAD_X, pady=PAD_Y, side="left")
 
-    cells[current_row][current_column].configure(bg=on_color_click(btn_color_palette))
+
 # ------------EVENT-------------------------
 # Run the application only when this file is executed directly (main files)
 # If the file is imported somewhere, it won't start directly.
@@ -903,6 +909,18 @@ def display_pawn_color(feedback_frame, result):
         pion = tk.Frame(feedback_frame, width=8, height=8, bg="white")
         pion.pack(padx=PAD_X, pady=PAD_Y, side="left", )
 
-def on_color_click(color_palette):
-    """ Function called when a color is clicked."""
-    current_column +=1
+def on_color_click(color):
+    """
+    Function called when a color buton is clicked. The goal of the function is to :
+    - color the actual cells of the board
+    - Go to the next cells
+
+    Similar to handle_key(event) from 2048.
+    Trigger by a click with the selected color as parameter.
+    """
+    # needed because the position is a global variable, shared by multiple function.
+    global current_column, current_row
+
+    cells[current_row][current_column].configure(bg=color)
+
+    current_column += 1

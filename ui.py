@@ -796,7 +796,6 @@ def main() -> None:
     build_board_display()
     build_button()
     color_choice_display()
-    root.mainloop()
     secret_code = engine.secrete_code()
 
     root.mainloop()

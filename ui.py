@@ -17,6 +17,8 @@ COLORS = ["red", "green", "blue", "yellow", "orange", "purple"]
 # --------------------------UI Variables--------------------------
 current_row = 0
 current_column = 0
+secret_code = []
+current_guess = []
 
 
 # List from reddit
@@ -787,13 +789,16 @@ COLOR_LIST = (
 # --------------------------MAIN FUNCTION--------------------------
 def main() -> None:
     """ Main fonction. Start the mainloop, and call the others functions """
-    global root
+    global root, secret_code
     root = tk.Tk()
     build_ui()
     build_title()
     build_board_display()
     build_button()
     color_choice_display()
+    root.mainloop()
+    secret_code = engine.secrete_code()
+
     root.mainloop()
 
 
@@ -867,13 +872,13 @@ def build_board_display():
             pion_frame = tk.Frame(feedback_frame, width=8, height=8, bg="white")
             pion_frame.pack(padx=PAD_X, pady=PAD_Y, side="left", )
 
-def color_selection(color: str):
+#def color_selection(color: str):
     """ Create a function associate to a color for selection.
     It's used to connect the color bouton from the color_palette to the action.
     Similar to 2048 where command = reset. Except that here we cannot write command = on_color_click(color).
     Did try but it doesn't work. Check with Cedric why ?
      """
-    on_color_click(color)
+
 
 def color_choice_display():
     palette_frame = tk.Frame(root, bg="grey17")
@@ -881,15 +886,13 @@ def color_choice_display():
 
     # Display the list of color available & create one button per color
     for color in COLORS:
-        btn_color_palette = tk.Button(palette_frame, width=4, height=2,bg=color, command= color_selection(color))
+        btn_color_palette = tk.Button(palette_frame, width=4, height=2,bg=color, command= lambda c=color: on_color_click(c))
         btn_color_palette.pack(padx=PAD_X, pady=PAD_Y, side="left")
 
 
 # ------------EVENT-------------------------
 # Run the application only when this file is executed directly (main files)
 # If the file is imported somewhere, it won't start directly.
-if __name__ == "__main__":
-    main()
 
 
 def display_pawn_color(feedback_frame, result):
@@ -924,3 +927,10 @@ def on_color_click(color):
     cells[current_row][current_column].configure(bg=color)
 
     current_column += 1
+
+    #Value for one full turn
+    if current_column == 4:
+        print("Current Guess:", current_guess)
+
+if __name__ == "__main__":
+    main()

@@ -922,7 +922,13 @@ def on_color_click(color):
     Trigger by a click with the selected color as parameter.
     """
     # needed because the position is a global variable, shared by multiple function.
-    global current_column, current_row
+    global current_column, current_row, current_guess, secret_code
+
+    if current_column >= 4:
+        return
+
+    #Store all the choice for the turn.
+    current_guess.append(color)
 
     cells[current_row][current_column].configure(bg=color)
 
@@ -931,6 +937,13 @@ def on_color_click(color):
     #Value for one full turn
     if current_column == 4:
         print("Current Guess:", current_guess)
+
+    result = engine.guess_to_secret_compare(secret_code, current_guess)
+    print("Result :", result)
+
+    current_guess = []
+    current_column = 0
+    current_row += 1
 
 if __name__ == "__main__":
     main()

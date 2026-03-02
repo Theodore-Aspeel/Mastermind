@@ -81,5 +81,6 @@ def test_guess_to_secret_compare():
     result = guess_to_secret_compare(selected_color, player_selection)
     print(result)
 
-# Don't forget to close the function to avoid losing 20 minutes ><.
-test_guess_to_secret_compare()
+if __name__ == '__main__':
+    # Don't forget to close the function to avoid losing 20 minutes ><.
+    test_guess_to_secret_compare()

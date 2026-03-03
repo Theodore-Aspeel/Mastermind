@@ -55,12 +55,9 @@ def build_button() -> None:
     button_frame = tk.Frame(root, bg=BACKGROUND_COLOR)
     button_frame.pack(padx=PAD_X, pady=PAD_Y)
 
-    lbl_delete_button = tk.Button(button_frame, text="Delete", bg="SlateGray",
-                                 )
+    lbl_delete_button = tk.Button(button_frame, text="Delete", bg="SlateGray",command=on_delete_click)
     lbl_delete_button.pack(side="left", padx=PAD_X, pady=PAD_Y)
-
-    lbl_new_game_button = tk.Button(button_frame, text="New Game", bg="forest green",
-                                 )
+    lbl_new_game_button = tk.Button(button_frame, text="New Game", bg="forest green")
     lbl_new_game_button.pack(side="right", padx=PAD_X, pady=PAD_Y)
 
 
@@ -129,7 +126,7 @@ def color_choice_display():
     # The "c=color" captures the argument one at time.
     for color in COLORS:
         btn_color_palette = tk.Button(palette_frame, width=4, height=2,bg=color, command= lambda c=color: on_color_click(c))
-        btn_color_palette.pack(padx=PAD_X, pady=PAD_Y, side="left"
+        btn_color_palette.pack(padx=PAD_X, pady=PAD_Y, side="left")
 
 # ------------EVENT-------------------------
 # Run the application only when this file is executed directly (main files)
@@ -169,7 +166,7 @@ def on_color_click(color):
     """
 
     # Modify the global state variable : position, try, secret
-    global current_column, current_row, current_guess, secret_code, result
+    global current_column, current_row, current_guess, secret_code
 
     # If we already filled 4 columns, we ignore the next clics
     if current_column >= 4:
@@ -195,7 +192,17 @@ def on_color_click(color):
         current_column = 0
         current_row += 1
 
+def on_delete_click():
 
+    """ Delete the last selected color"""
+
+    global current_column, current_guess
+
+    if current_column > 0:
+        current_column -= 1
+        #Use pop instead of clear to remove only the last color.
+        current_guess.pop()
+        cells[current_row][current_column].configure(bg="black")
 
 if __name__ == "__main__":
     main()

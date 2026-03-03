@@ -185,10 +185,21 @@ def on_color_click(color):
         #Affiche le feedback in the zone of the current_row
         display_pawn_color(feedback_frames[current_row], result)
 
+        #When 4 black pawns, it's a win.
+        if result[0] == 4:
+            print("You win!")
+            return
+
+        if current_row == 9 and result[0] != 4:
+            print("Game Over")
+            return
+
         #Empty the list and go back to the first column
         current_guess = []
         current_column = 0
         current_row += 1
+
+
 
 def on_delete_click():
 

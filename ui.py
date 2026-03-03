@@ -57,7 +57,7 @@ def build_button() -> None:
 
     lbl_delete_button = tk.Button(button_frame, text="Delete", bg="SlateGray",command=on_delete_click)
     lbl_delete_button.pack(side="left", padx=PAD_X, pady=PAD_Y)
-    lbl_new_game_button = tk.Button(button_frame, text="New Game", bg="forest green")
+    lbl_new_game_button = tk.Button(button_frame, text="New Game", bg="forest green", command= on_new_game_button_click)
     lbl_new_game_button.pack(side="right", padx=PAD_X, pady=PAD_Y)
 
 
@@ -130,8 +130,6 @@ def color_choice_display():
 
 # ------------EVENT-------------------------
 # Run the application only when this file is executed directly (main files)
-# If the file is imported somewhere, it won't start directly.
-
 
 def display_pawn_color(feedback_frame, result):
     """ Fonction with 2 parameters :
@@ -203,6 +201,24 @@ def on_delete_click():
         #Use pop instead of clear to remove only the last color.
         current_guess.pop()
         cells[current_row][current_column].configure(bg="black")
+
+def on_new_game_button_click():
+    """ Reset the whole board by putting all the cells back to black.
+    And reset the secret code"""
+
+    global current_row, current_column, current_guess, secret_code
+
+    current_row = 0
+    current_column = 0
+    current_guess = []
+
+    for row in range(10):
+        for col in range(4):
+            cells[row][col].configure(bg="black")
+
+    secret_code = engine.secrete_code()
+
+
 
 if __name__ == "__main__":
     main()

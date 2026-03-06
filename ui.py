@@ -125,6 +125,9 @@ def build_victory_or_lose_message():
     status_label = tk.Label(root, text="", font=('Helvetica', 14), bg=BACKGROUND_COLOR)
     status_label.pack(pady=10)
 
+    #Set the number of attempts message
+    status_label.configure(text="Attempts left: 10")
+
 def color_choice_display():
     palette_frame = tk.Frame(root, bg="grey17")
     palette_frame.pack(padx=PAD_X, pady=PAD_Y)
@@ -198,13 +201,15 @@ def on_color_click(color):
             return
 
         if current_row == 9 and result[0] != 4:
-            status_label.configure(text="Game Over")
+            status_label.configure(text=f"Game Over! The Secret code was: {secret_code}")
             return
 
         #Empty the list and go back to the first column
         current_guess = []
         current_column = 0
         current_row += 1
+        #Display the number of attempt
+        status_label.configure(text=f"Attempts left: {10 - current_row}")
 
 
 
@@ -237,7 +242,7 @@ def on_new_game_button_click():
     secret_code = engine.secrete_code()
 
     #Use to reset the win/lose message
-    status_label.configure(text="")
+    status_label.configure(text="Attempts left: 10")
 
 
 if __name__ == "__main__":

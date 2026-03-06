@@ -37,6 +37,7 @@ def main() -> None:
     build_title()
     build_board_display()
     build_button()
+    build_victory_or_lose_message()
     color_choice_display()
 
     secret_code = engine.secrete_code()
@@ -118,6 +119,12 @@ def build_board_display():
         # So we've a list of lists ( 2d matrix). Cells[row][col] represents the cells to modify it.
         cells.append(row_cells)
 
+def build_victory_or_lose_message():
+    global status_label
+    #Set up an empty text because we don't want to display anything before lose or victory
+    status_label = tk.Label(root, text="", font=('Helvetica', 14), bg=BACKGROUND_COLOR)
+    status_label.pack(pady=10)
+
 def color_choice_display():
     palette_frame = tk.Frame(root, bg="grey17")
     palette_frame.pack(padx=PAD_X, pady=PAD_Y)
@@ -187,11 +194,11 @@ def on_color_click(color):
 
         #When 4 black pawns, it's a win.
         if result[0] == 4:
-            print("You win!")
+            status_label.configure(text="You win!")
             return
 
         if current_row == 9 and result[0] != 4:
-            print("Game Over")
+            status_label.configure(text="Game Over")
             return
 
         #Empty the list and go back to the first column
@@ -229,6 +236,8 @@ def on_new_game_button_click():
 
     secret_code = engine.secrete_code()
 
+    #Use to reset the win/lose message
+    status_label.configure(text="")
 
 
 if __name__ == "__main__":

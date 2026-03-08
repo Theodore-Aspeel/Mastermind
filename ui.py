@@ -21,6 +21,8 @@ current_column = 0
 #List that contain the 4 colors secret code generate by engine.secret_code().
 secret_code = []
 current_guess = []
+game_finished = False
+score = 0
 
 # --------------------------MAIN FUNCTION--------------------------
 def main() -> None:
@@ -41,6 +43,16 @@ def main() -> None:
     color_choice_display()
 
     secret_code = engine.secrete_code()
+
+    global score
+
+    #Open the file to read the score saved ( "r" = read)
+    try:
+        file = open("score.txt", "r")
+        score = int(file.read())
+        file.close()
+    except:
+        score = 0
 
     root.mainloop()
 
@@ -174,8 +186,10 @@ def on_color_click(color):
     """
 
     # Modify the global state variable : position, try, secret
-    global current_column, current_row, current_guess, secret_code
+    global current_column, current_row, current_guess, secret_code, game_finished, score
 
+    if game_finished:
+        return
     # If we already filled 4 columns, we ignore the next clics
     if current_column >= 4:
         return
@@ -197,11 +211,20 @@ def on_color_click(color):
 
         #When 4 black pawns, it's a win.
         if result[0] == 4:
-            status_label.configure(text="You win!")
+            status_label.configure(text="Congratulations ! YOU WIN ")
+
+            score += 1
+
+            file = open("score.txt", "w")
+            file.write(str(score))
+            file.close()
+
+            game_finished = True
             return
 
         if current_row == 9 and result[0] != 4:
             status_label.configure(text=f"Game Over! The Secret code was: {secret_code}")
+            game_finished = True
             return
 
         #Empty the list and go back to the first column
@@ -243,6 +266,7 @@ def on_new_game_button_click():
 
     #Use to reset the win/lose message
     status_label.configure(text="Attempts left: 10")
+
 
 
 if __name__ == "__main__":

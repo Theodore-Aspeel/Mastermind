@@ -17,6 +17,7 @@ CODE_LENGTH = 4
 
 # --------------------------Fonctions--------------------------
 
+
 def secrete_code() -> List[str]:
     """
     Choose randomly colours to the code that the player will have to guess
@@ -26,13 +27,17 @@ def secrete_code() -> List[str]:
         # Add a random color to the end of an existing list
         selected_color.append(choice(COLORS))
     return selected_color
+
+
 # print(secrete_code())
 
-def fonction_provisoire():
 
+def fonction_provisoire():
     player_selection = ["red", "green", "blue", "yellow"]
 
     return player_selection
+
+
 """def player_selection() -> List[str]:
     colour_guess = []
     for _ in range(CODE_LENGTH):
@@ -45,20 +50,21 @@ def fonction_provisoire():
 
 def guess_to_secret_compare(selected_color, player_selection) -> tuple[int, int]:
     """
-    well_placed = good colour & good position --> black piece
-    misplaced = good colour & bad position --> white piece
-    misplace = total colour in commun - well_place
+     well_placed = good colour & good position --> black piece
+     misplaced = good colour & bad position --> white piece
+     misplace = total colour in commun - well_place
 
-   total_common_color = the minimum of every color between the secret code, and the player guess.
-   EX : GUESS : Y B R R & SECRET : R G B P. total_common_color = 1R 1B 0Y 0P
+    total_common_color = the minimum of every color between the secret code, and the player guess.
+    EX : GUESS : Y B R R & SECRET : R G B P. total_common_color = 1R 1B 0Y 0P
 
 
     """
 
-
     total_common_color = 0
     for colors in COLORS:
-        total_common_color += min(player_selection.count(colors), selected_color.count(colors))
+        total_common_color += min(
+            player_selection.count(colors), selected_color.count(colors)
+        )
 
     well_placed = 0
     for n in range(CODE_LENGTH):
@@ -71,7 +77,7 @@ def guess_to_secret_compare(selected_color, player_selection) -> tuple[int, int]
 
 
 def test_guess_to_secret_compare():
-    """ Test in the engine the guess_to_secret_compare function.
+    """Test in the engine the guess_to_secret_compare function.
     In order to test the fonction before having the UI/engine done.
     """
 
@@ -81,6 +87,7 @@ def test_guess_to_secret_compare():
     result = guess_to_secret_compare(selected_color, player_selection)
     print(result)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     # Don't forget to close the function to avoid losing 20 minutes ><.
     test_guess_to_secret_compare()

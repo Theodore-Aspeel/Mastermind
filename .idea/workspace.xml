@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="121b12d6-25f6-458d-95d9-a54c024e7407" name="Changes" comment="Add the number of attempt message + the display of the code if the player lose">
+    <list default="true" id="121b12d6-25f6-458d-95d9-a54c024e7407" name="Changes" comment="Save the number of victory from the user">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui.py" beforeDir="false" afterPath="$PROJECT_DIR$/ui.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,7 +81,8 @@
       <workItem from="1769795331540" duration="598000" />
       <workItem from="1770657360846" duration="47000" />
       <workItem from="1772465737309" duration="7599000" />
-      <workItem from="1772475383193" duration="15351000" />
+      <workItem from="1772475383193" duration="16940000" />
+      <workItem from="1773075934253" duration="4180000" />
     </task>
     <task id="LOCAL-00001" summary="CREATE architecture of the projet + architecture of ui.py">
       <option name="closed" value="true" />
@@ -362,7 +364,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772816290224</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Save the number of victory from the user">
+      <option name="closed" value="true" />
+      <created>1772968123568</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1772968123569</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -380,7 +390,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="BUG FIX color_choice_display. Not functional yet." />
     <MESSAGE value="ADD secrete_code_selection function" />
     <MESSAGE value="CORRECT secrete_code_selection function" />
     <MESSAGE value="Add guess_test function (not fonctional)." />
@@ -405,14 +414,15 @@
     <MESSAGE value="Add victory and lose." />
     <MESSAGE value="Reset of the message when new party;" />
     <MESSAGE value="Add the number of attempt message + the display of the code if the player lose" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add the number of attempt message + the display of the code if the player lose" />
+    <MESSAGE value="Save the number of victory from the user" />
+    <option name="LAST_COMMIT_MESSAGE" value="Save the number of victory from the user" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/ui.py</url>
-          <line>193</line>
+          <line>205</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -424,7 +434,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Mastermind$ui.coverage" NAME="ui Coverage Results" MODIFIED="1772817136340" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Mastermind$ui.coverage" NAME="ui Coverage Results" MODIFIED="1773080115317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Mastermind$engine.coverage" NAME="engine Coverage Results" MODIFIED="1772472853580" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

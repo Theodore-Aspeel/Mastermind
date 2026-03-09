@@ -21,6 +21,7 @@ current_column = 0
 #List that contain the 4 colors secret code generate by engine.secret_code().
 secret_code = []
 current_guess = []
+feedback_pawns = []
 game_finished = False
 score = 0
 
@@ -93,7 +94,7 @@ def build_board_display():
      - a guess zone of 4 cells ( the color square of the game)
      - a feedback area made of 4 cells maximum ( black/withe pawn)
      """
-    global cells, feedback_frames
+    global cells, feedback_frames, feedback_pawns
 
 
     board_frame = tk.Frame(root, bg="grey17")
@@ -101,10 +102,12 @@ def build_board_display():
 
     cells = []
     feedback_frames = []
+    feedback_pawns = []
 
     #One iteration for each row
     for row in range(10):
         row_cells = []
+        feedback_pawns.append([])
 
         row_frame = tk.Frame(board_frame, bg="grey17")
         row_frame.pack(padx=PAD_X, pady=PAD_Y)
@@ -132,10 +135,14 @@ def build_board_display():
         cells.append(row_cells)
 
 def build_victory_or_lose_message():
-    global status_label
+    global status_label,secret_display_frame
     #Set up an empty text because we don't want to display anything before lose or victory
     status_label = tk.Label(root, text="", font=('Helvetica', 14), bg=BACKGROUND_COLOR)
     status_label.pack(pady=10)
+
+    #Use to display the color squares
+    secret_display_frame = tk.Frame(root, bg=BACKGROUND_COLOR)
+    secret_display_frame.pack()
 
     #Set the number of attempts message
     status_label.configure(text="Attempts left: 10")
@@ -167,12 +174,17 @@ def display_pawn_color(feedback_frame, result):
     white = result[1]
 
     for _ in range(black):
-        pion = tk.Frame(feedback_frame, width=8, height=8, bg="black")
-        pion.pack(padx=PAD_X, pady=PAD_Y, side="left", )
+        pawn = tk.Frame(feedback_frame, width=8, height=8, bg="black")
+        pawn.pack(padx=PAD_X, pady=PAD_Y, side="left" )
+
+        # store the pawn to be able to remove it if necessary
+        feedback_pawns[current_row].append(pawn)
 
     for _ in range(white):
-        pion = tk.Frame(feedback_frame, width=8, height=8, bg="white")
-        pion.pack(padx=PAD_X, pady=PAD_Y, side="left", )
+        pawn = tk.Frame(feedback_frame, width=8, height=8, bg="white")
+        pawn.pack(padx=PAD_X, pady=PAD_Y, side="left", )
+
+        feedback_pawns[current_row].append(pawn)
 
 def on_color_click(color):
     """
@@ -223,7 +235,8 @@ def on_color_click(color):
             return
 
         if current_row == 9 and result[0] != 4:
-            status_label.configure(text=f"Game Over! The Secret code was: {secret_code}")
+            status_label.configure(text="Game Over!")
+            display_secret_code(secret_code)
             game_finished = True
             return
 
@@ -262,11 +275,32 @@ def on_new_game_button_click():
         for col in range(4):
             cells[row][col].configure(bg="black")
 
+    for row in range(10):
+        for pawn in feedback_pawns[row]:
+            pawn.pack_forget()
+
+        feedback_pawns[row] = []
+
+
     secret_code = engine.secrete_code()
 
     #Use to reset the win/lose message
     status_label.configure(text="Attempts left: 10")
+    secret_display_frame.pack_forget()
+    secret_display_frame.pack()
 
+
+def display_secret_code(secret_code):
+        """Display the secret code in visual way with color squares"""
+
+        label = tk.Label(secret_display_frame,
+                         text="The secret code was:",
+                         bg=BACKGROUND_COLOR)
+        label.pack(side="left", padx=10)
+
+        for color in secret_code:
+            square = tk.Frame(secret_display_frame, width=16, height=16, bg=color)
+            square.pack(side="left", padx=5)
 
 
 if __name__ == "__main__":

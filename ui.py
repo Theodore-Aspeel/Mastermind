@@ -22,7 +22,7 @@ current_guess = []
 feedback_pawns = []
 # Flag that says if the game is finished or not.
 game_finished = False
-score = 0
+best_score = 0
 
 
 # --------------------------MAIN FUNCTION--------------------------
@@ -33,7 +33,7 @@ def main() -> None:
     3. Initiate the secret code from engine
     4. Launch the main loop.
     """
-    global root, secret_code
+    global root, secret_code, best_score
     root = tk.Tk()
 
     build_ui()
@@ -45,15 +45,15 @@ def main() -> None:
 
     secret_code = engine.secrete_code()
 
-    global score
-
     # Open the file to read the score saved ( "r" = read)
     try:
-        file = open("score.txt", "r")
-        score = int(file.read())
+        file = open("best_score.txt", "r")
+        best_score = int(file.read())
         file.close()
-    except:
-        score = 0
+    except FileNotFoundError:
+        best_score = 0
+    except ValueError:
+        best_score = 0
 
     root.mainloop()
 
@@ -218,65 +218,86 @@ def remove_feedback_frame():
 
 def on_color_click(color):
     """
-    Function called when a color buton is clicked. The goal of the function is to :
-    1. Add the color to the actual try (current_guess)
-    2. Color the correct cells of the board
-    3. When 4 colors are selected.
-        -  call engine.guess_to_secret_compare() to get the feedback
+    Function called when a color button is clicked.
+    The goal of the function is to:
+    1. add the color to the current guess
+    2. color the correct cell on the board
+    3. when 4 colors are selected:
+        - call engine.guess_to_secret_compare() to get the feedback
         - display the feedback pawns
-        - Go to the next cells and "restart" the turn
+        - check if the player wins or loses
+        - move to the next row
     """
 
-    # Modify the global state variable : position, try, secret
-    global current_column, current_row, current_guess, secret_code, game_finished, score
+    global current_column, current_row, current_guess, secret_code, game_finished, best_score
 
     # If the game is finished, ignore next clicks
     if game_finished:
         return
-    # If we already filled 4 columns, we ignore the next clics
+
+    # If we already filled 4 columns, ignore next clicks
     if current_column >= 4:
         return
 
-    # Store the clicked color of the actual try.
+    # Store the clicked color of the current try
     current_guess.append(color)
 
+    # Color the current cell
     cells[current_row][current_column].configure(bg=color)
 
     current_column += 1
 
-    # Value for one full turn
+    # When 4 colors are selected
     if current_column == 4:
-        # Compare secret_code/current_guess and send black and white
         result = engine.guess_to_secret_compare(secret_code, current_guess)
-        # Affiche le feedback in the zone of the current_row
+
+        # Display the feedback in the current row
         add_feedback_frame(current_row, result)
 
-        # When 4 black pawns, it's a win.
+        # If 4 black pawns, player wins
         if result[0] == 4:
-            status_label.configure(text="Congratulations ! YOU WIN ")
+            attempts_used = current_row + 1
+            new_best_score = False
 
-            score += 1
+            # Save best score only if it is better
+            if best_score == 0 or attempts_used < best_score:
+                best_score = attempts_used
+                new_best_score = True
 
-            file = open("score.txt", "w")
-            file.write(str(score))
-            file.close()
+                try:
+                    file = open("best_score.txt", "w")
+                    file.write(str(best_score))
+                    file.close()
+                except OSError:
+                    print("Error: impossible to save best score")
+
+            # Display victory message
+            if new_best_score:
+                status_label.configure(
+                    text=f"Congratulations! New best score: {attempts_used} attempts"
+                )
+            else:
+                status_label.configure(
+                    text=f"Congratulations! You win in {attempts_used} attempts"
+                )
 
             game_finished = True
             return
 
-        if current_row == 9 and result[0] != 4:
+        # If last row and still not won, game over
+        if current_row == 9:
             status_label.configure(text="Game Over!")
             display_secret_code(secret_code)
             game_finished = True
             return
 
-        # Empty the list and go back to the first column
+        # Reset current guess and move to next row
         current_guess = []
         current_column = 0
         current_row += 1
-        # Display the number of attempt
-        status_label.configure(text=f"Attempts left: {10 - current_row}")
 
+        # Update the number of attempts left
+        status_label.configure(text=f"Attempts left: {10 - current_row}")
 
 def on_delete_click():
     """Delete the last selected color"""
@@ -320,11 +341,8 @@ def display_secret_code(secret_code):
     """Display the secret code in visual way with color squares"""
 
     try:
-
         label = tk.Label(
-            secret_display_frame,
-            text="The secret code was:",
-            bg=BACKGROUND_COLOR
+            secret_display_frame, text="The secret code was:", bg=BACKGROUND_COLOR
         )
         label.pack(side="left", padx=10)
 
@@ -334,6 +352,7 @@ def display_secret_code(secret_code):
 
     except:
         print("Error: impossible to display secret code")
+
 
 if __name__ == "__main__":
     main()

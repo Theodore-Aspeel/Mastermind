@@ -229,7 +229,13 @@ def on_color_click(color):
         - move to the next row
     """
 
-    global current_column, current_row, current_guess, secret_code, game_finished, best_score
+    global \
+        current_column, \
+        current_row, \
+        current_guess, \
+        secret_code, \
+        game_finished, \
+        best_score
 
     # If the game is finished, ignore next clicks
     if game_finished:
@@ -298,6 +304,7 @@ def on_color_click(color):
 
         # Update the number of attempts left
         status_label.configure(text=f"Attempts left: {10 - current_row}")
+
 
 def on_delete_click():
     """Delete the last selected color"""

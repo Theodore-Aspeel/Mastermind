@@ -76,18 +76,6 @@ def guess_to_secret_compare(selected_color, player_selection) -> tuple[int, int]
     return well_placed, misplaced
 
 
-def test_guess_to_secret_compare():
-    """Test in the engine the guess_to_secret_compare function.
-    In order to test the fonction before having the UI/engine done.
-    """
-
-    player_selection = ["red", "green", "blue", "yellow"]
-    selected_color = ["blue", "green", "purple", "green"]
-
-    result = guess_to_secret_compare(selected_color, player_selection)
-    print(result)
-
-
 if __name__ == "__main__":
     # Don't forget to close the function to avoid losing 20 minutes ><.
     test_guess_to_secret_compare()

@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="121b12d6-25f6-458d-95d9-a54c024e7407" name="Changes" comment="Add the test and remove the one present in the engine.py">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_engine.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +81,7 @@
       <workItem from="1770657360846" duration="47000" />
       <workItem from="1772465737309" duration="7599000" />
       <workItem from="1772475383193" duration="16940000" />
-      <workItem from="1773075934253" duration="14015000" />
+      <workItem from="1773075934253" duration="14376000" />
     </task>
     <task id="LOCAL-00001" summary="CREATE architecture of the projet + architecture of ui.py">
       <option name="closed" value="true" />
@@ -403,7 +403,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773409074929</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Add the test and remove the one present in the engine.py">
+      <option name="closed" value="true" />
+      <created>1773409183247</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1773409183247</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

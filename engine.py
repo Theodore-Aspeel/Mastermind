@@ -6,7 +6,7 @@ __author__ = Théodore Aspeel
 """
 
 # --------------------------Import libraries--------------------------
-from typing import List, Tuple
+from typing import List
 from random import random, choice
 
 # --------------------------Constants--------------------------
@@ -27,26 +27,6 @@ def secrete_code() -> List[str]:
         # Add a random color to the end of an existing list
         selected_color.append(choice(COLORS))
     return selected_color
-
-
-# print(secrete_code())
-
-
-def fonction_provisoire():
-    player_selection = ["red", "green", "blue", "yellow"]
-
-    return player_selection
-
-
-"""def player_selection() -> List[str]:
-    colour_guess = []
-    for _ in range(CODE_LENGTH):
-        colour_guess.append(choice(COLORS))
-    return colour_guess
-    
-    PAS DE SELECTION ICI MAIS DANS L UI DIRECTEMENT
-    """
-
 
 def guess_to_secret_compare(selected_color, player_selection) -> tuple[int, int]:
     """
@@ -77,5 +57,5 @@ def guess_to_secret_compare(selected_color, player_selection) -> tuple[int, int]
 
 
 if __name__ == "__main__":
-    # Don't forget to close the function to avoid losing 20 minutes ><.
+    # Don't forget to close the function.
     test_guess_to_secret_compare()

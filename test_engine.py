@@ -5,6 +5,7 @@ def check(secret, guess, expected):
     result = engine.guess_to_secret_compare(secret, guess)
     assert result == expected
 
+
 def test_secret_code_has_4_colors():
     code = engine.secrete_code()
     assert len(code) == 4

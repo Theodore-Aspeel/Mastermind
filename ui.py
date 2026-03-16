@@ -28,10 +28,10 @@ best_score = 0
 # --------------------------MAIN FUNCTION--------------------------
 def main() -> None:
     """
-    1. Create the windows ( root)
-    2. Build the interface ( frames, labels, etc)
-    3. Initiate the secret code from engine
-    4. Launch the main loop.
+    Start the game.
+
+    This function creates the window, build all interface,
+    load the best score, generate the secret code and then start the main loop.
     """
     global root, secret_code, best_score
     root = tk.Tk()
@@ -65,7 +65,8 @@ def build_ui():
 
 
 def build_button() -> None:
-    # Frame that contains our buttons
+    """Create the Delete and New Game buttons."""
+
     button_frame = tk.Frame(root, bg=BACKGROUND_COLOR)
     button_frame.pack(padx=PAD_X, pady=PAD_Y)
 
@@ -83,6 +84,7 @@ def build_button() -> None:
 
 
 def build_title() -> None:
+    """Create the title and subtitle area that is shown at the top of the window."""
     title_frame = tk.Frame(root, bg="RoyalBlue4")
     title_frame.pack(padx=PAD_X, pady=PAD_Y)
 
@@ -150,6 +152,12 @@ def build_board_display():
 
 
 def build_victory_or_lose_message():
+    """
+    Create the label used to show the game status.
+    Also used to display the number of attempts left
+    and the final (win/lose) message.
+    """
+
     global status_label, secret_display_frame
     # Set up an empty text because we don't want to display anything before lose or victory
     status_label = tk.Label(root, text="", font=("Helvetica", 14), bg=BACKGROUND_COLOR)
@@ -164,6 +172,7 @@ def build_victory_or_lose_message():
 
 
 def color_choice_display():
+    """Create the buttons for each color of the list"""
     palette_frame = tk.Frame(root, bg="grey17")
     palette_frame.pack(padx=PAD_X, pady=PAD_Y)
 
@@ -185,7 +194,9 @@ def color_choice_display():
 
 
 def add_feedback_frame(row, result):
-    """Add black and white pawns for a row"""
+    """Add black and white pawns for a row
+     Black means good color at the good place.
+    White means good color but wrong place."""
 
     black = result[0]
     white = result[1]
@@ -218,16 +229,13 @@ def remove_feedback_frame():
 
 def on_color_click(color):
     """
-    Function called when a color button is clicked.
-    The goal of the function is to:
-    1. add the color to the current guess
-    2. color the correct cell on the board
-    3. when 4 colors are selected:
-        - call engine.guess_to_secret_compare() to get the feedback
-        - display the feedback pawns
-        - check if the player wins or loses
-        - move to the next row
+    Handle the click on a color button.
+
+    The function adds the chosen color to the current guess,
+    updates the board, checks the result when 4 colors are chosen,
+    and manages win or lose situations.
     """
+
 
     global \
         current_column, \
@@ -307,7 +315,7 @@ def on_color_click(color):
 
 
 def on_delete_click():
-    """Delete the last selected color"""
+    """Remove the last selected color from the current guess."""
 
     global current_column, current_guess
 
@@ -345,7 +353,7 @@ def on_new_game_button_click():
 
 
 def display_secret_code(secret_code):
-    """Display the secret code in visual way with color squares"""
+    """Display the secret code in visual way"""
 
     try:
         label = tk.Label(
